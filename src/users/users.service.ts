@@ -2,17 +2,16 @@ import {
   BadRequestException,
   Injectable,
   InternalServerErrorException,
-  UnprocessableEntityException
-} from "@nestjs/common";
-import { CreateUserDto } from "./dto/create-user.dto";
-import { UpdateUserDto } from "./dto/update-user.dto";
-import { RegisterResponseData } from "../auth/interface/auth.interfaces";
-import { User } from "./entities";
-import { InjectRepository } from "@nestjs/typeorm";
-import { UtilService } from "../util/util.service";
-import { IsNull, Repository, TypeORMError, UpdateResult } from "typeorm";
-import { LoginDto } from "../auth/dto/login.dto";
-import { AuthService } from "../auth/auth.service";
+  UnprocessableEntityException,
+} from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { User } from './entities';
+import { InjectRepository } from '@nestjs/typeorm';
+import { UtilService } from '../util/util.service';
+import { IsNull, Repository, TypeORMError, UpdateResult } from 'typeorm';
+import { LoginDto } from '../auth/dto/login.dto';
+import { AuthService } from '../auth/auth.service';
 
 let findAllCounter = 1;
 let findByIdCounter = 1;
