@@ -28,14 +28,14 @@ export class UsersController {
 
   @Get()
   @ApiOperation({ summary: 'Get all user profiles' })
-  async findAll(): Promise<Array<User>> {
+  async findAll(): Promise<User[]> {
     return await this.usersService.findAll();
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Get user profile' })
-  findOne(@Param('id') id: string) {
-    return this.usersService.findOne(Number(id));
+  @ApiOperation({summary: 'Get user profile'})
+  async findOne(@Param('id') id: string): Promise<User> {
+    return await this.usersService.findOne(Number(id));
   }
 
   @Patch(':id')

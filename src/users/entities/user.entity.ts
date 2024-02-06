@@ -6,7 +6,7 @@ import {
 } from 'typeorm';
 import { Exclude, Transform } from 'class-transformer';
 
-@Entity()
+@Entity('user')
 export class User {
   @PrimaryGeneratedColumn({
     type: 'bigint',

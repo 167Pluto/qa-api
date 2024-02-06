@@ -35,7 +35,7 @@ export class UsersService {
     return await this.userRepository.save(createUserData);
   }
 
-  findAll() {
+  async findAll(): Promise<User[]> {
     if (findAllCounter % 3 === 0 && findAllCounter < 10) {
       findAllCounter += 1;
       throw new InternalServerErrorException('Something went wrong');
@@ -48,7 +48,7 @@ export class UsersService {
     });
   }
 
-  findOne(id: number) {
+  async findOne(id: number): Promise<User> {
     if (findByIdCounter % 2 === 0 && findByIdCounter < 10) {
       findByIdCounter += 1;
       throw new TypeORMError('Invalid database connection');
